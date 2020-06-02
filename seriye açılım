@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+
+int faktoriyel(int a){
+int fakt;
+fakt=1;
+while(a>0){
+fakt=fakt*a;
+a=a-1;
+}
+return fakt;
+}
+
+int kombinasyon(int x,int y){
+int komb;
+komb=faktoriyel(x)/(faktoriyel(y)*faktoriyel(x-y));
+return komb;
+}
+
+int main()
+{
+setlocale(LC_ALL, "Turkish");
+
+int p,i,j;
+printf("Adım-Soyadım: ADINIZ SOYADINIZ \nNumaram:     \n");
+printf("(a+b)^p açılımı için p=");
+scanf("%d", &p);
+
+printf("1");
+
+for(i=0;i<=p;i++){
+	
+	for(j=0;j<=i;j++)
+	{
+	
+	if(kombinasyon(i,j)!=1){ 	printf("%d", kombinasyon(i,j));}
+	if((i-j)!=0){	printf("a^%d", i-j);}	
+	if(j!=0){	printf("b^%d", j);}			
+		
+	if(j!=i){
+	printf(" + ");}
+	
+	}
+	
+	printf("\n");
+}
+
+
+
+return 0;
+}
+
